@@ -1,0 +1,17 @@
+<div class="boxContent">
+  <div>
+    <p>Oblicz, ile wyniesie rata Twojego kredytu, jak długo będziesz spłacać zadłużenie, i ile zapłacisz odsetek.</p>
+    <div class="container">
+      <app-input [Placeholder]="'Kwota kredytu [zł]'" (OutputValue)='setAmountOfCredit($event)'></app-input>&nbsp;
+      <app-input [Placeholder]="'Oprocentowanie kredytu [%]'" (OutputValue)='setAnnualLendingRate($event)'></app-input>&nbsp;
+      <app-input [Placeholder]="'Okres kredytu w miesiącach'" (OutputValue)='setLifeOfLoan($event)'></app-input>&nbsp;
+      <app-button [Text]="'Oblicz'" (click)='getEqualInstallmentResult()'></app-button>
+      <!-- check list -->
+    </div>
+  </div>
+  <div *ngIf=financialResult>
+    <!-- <app-table [ArraySource]=shortFinancialResult [DisplayedColumns]=displayedShortFinancialColumn></app-table>
+    <app-pie-chart></app-pie-chart> -->
+    <app-table [ArraySource]=financialResult></app-table>
+  </div>
+</div>
